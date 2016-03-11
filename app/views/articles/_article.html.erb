@@ -5,7 +5,7 @@
     </p>
     <p class="text-right price">
         <a class="button large" href="<%= url_for(action: :buy, id: article.id) %>">
-            <%= number_to_currency article.price %>
+            <%= number_to_currency(article.price, locale: :fr_CH) %>
         </a>
     </p>
 </div>

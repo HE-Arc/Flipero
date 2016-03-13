@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Flipero.iml" filepath="$PROJECT_DIR$/.idea/Flipero.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ror.iml" filepath="$PROJECT_DIR$/.idea/ror.iml" />
     </modules>
   </component>
 </project>

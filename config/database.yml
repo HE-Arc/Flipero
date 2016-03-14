@@ -24,6 +24,12 @@ default: &default
   password: <%= ENV['POSTGRES_ENV_POSTGRES_PASSWORD'] %>
   host: postgres
 
+# Just like development but for the srvz-webapp server.
+staging:
+  <<: *default
+  database: <%= ENV['POSTGRES_USERNAME'] %>
+  user: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 development:
   <<: *default

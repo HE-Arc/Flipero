@@ -1,7 +1,18 @@
-<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to "Flipero", '/' %></h1>
-    </li>
-  </ul>
-</nav>
+<div class="top-bar">
+  <div class="top-bar-title">
+    <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <span class="menu-icon dark" data-toggle></span>
+    </span>
+    <strong><%= link_to "Flipero", '/' %></strong>
+  </div>
+  <div id="responsive-menu">
+    <div class="top-bar-left">
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><%= link_to "Login", '/users/sign_in' %></li>
+        <li><%= link_to "Sign up", '/users/sign_up' %></li>
+      </ul>
+    </div>
+  </div>
+</div>

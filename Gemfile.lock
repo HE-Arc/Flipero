@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: dca8911f240ea11ebb186c33573188aa9e1b031d
+  revision: 355dc80f8a201ad5c09445c9b26fec51aa2180db
   specs:
     rails_admin (0.8.1)
       builder (~> 3.1)
@@ -136,7 +136,7 @@ GEM
     nested_form (0.3.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (3.0.2)
+    net-ssh (3.1.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)

@@ -4,21 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Flipero" %></title>
 
     <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <!-- Affichage du menu de login-->
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
+    <nav>
+      <%= render "layouts/navigation" %>
+    </nav>
     <main role="main">
       <%= yield %>
     </main>
-
   </body>
 </html>
+

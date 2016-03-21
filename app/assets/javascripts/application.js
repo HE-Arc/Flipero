@@ -16,6 +16,7 @@
 //= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ $(document).foundation();});
 
+//= require modernizr
 //= require turbolinks

@@ -15,6 +15,7 @@
           <li><%= link_to "Sign up", '/users/sign_up' %></li>
         <% else %>
           <li><%= link_to "Profile", '/users/edit' %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
         <% end %>
       </ul>
     </div>

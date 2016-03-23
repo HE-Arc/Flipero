@@ -1,3 +1,3 @@
-class Vente < ActiveRecord::Base
+class Sale < ActiveRecord::Base
   validates :prix, numericality: { greater_than: 0 }
 end

@@ -6,6 +6,8 @@ class ArticlesController < ApplicationController
     def buy
       flash.notice = "TODO: buy an article #{params[:id]}"
 
+      #TODO
+
       redirect_to action: :index
     end
     

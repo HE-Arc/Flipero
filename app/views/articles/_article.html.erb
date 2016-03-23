@@ -3,7 +3,10 @@
     <p>
       <img src="<%= article.image.url(:thumb) %>" alt="preview of <%= article.name %>">
     </p>
-    <p class="text-right price">
+    <p class="text-left detail">
+        <a class="button large" href="<%= url_for(action: :show, id: article.id) %>">
+            Show
+        </a>
         <a class="button large" href="<%= url_for(action: :buy, id: article.id) %>">
             <%= article.price %> pts
         </a>

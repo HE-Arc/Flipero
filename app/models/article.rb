@@ -7,5 +7,6 @@ class Article < ActiveRecord::Base
 
     validates_attachment_content_type :image, content_type: /^image\/.*$/
     
-    has_and_belongs_to_many :users
+    has_many :sales
+    has_many :users, through: :sales
 end

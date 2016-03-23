@@ -1,0 +1,14 @@
+<div class="large-3 medium-4 small-12 columns article<%= " end" if sale_counter + 1 == @sales.count %>">
+    <h2><%= sale.article.name %></h2>
+    <p>
+      <img src="<%= sale.article.image.url(:thumb) %>" alt="preview of <%= sale.article.name %>">
+    </p>
+    <p class="text-left detail">
+        <a class="button large" href="<%= url_for(action: :show, id: sale.id) %>">
+            Show
+        </a>
+        <a class="button large" href="<%= url_for(action: :buy, id: sale.id) %>">
+            <%= sale.price %> pts
+        </a>
+    </p>
+</div>

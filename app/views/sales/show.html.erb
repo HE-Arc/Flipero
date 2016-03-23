@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="columns small-6">
+    <h2><%= @sale.article.name  %></h2>
+    <p>
+      <img src="<%= @sale.article.image.url(:medium) %>" alt="preview of <%= @sale.article.name %>">
+    </p>
+  </div>
+  <div class="columns small-6">
+    <p>
+      <%= @sale.article.description %>
+    </p>
+    <p>
+      Prix : <%= @sale.price %>
+    </p>
+  </div>
+</div>

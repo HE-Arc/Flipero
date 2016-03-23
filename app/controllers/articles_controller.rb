@@ -8,4 +8,8 @@ class ArticlesController < ApplicationController
 
       redirect_to action: :index
     end
+    
+    def show
+      @articles = Article.find(params[:id])
+    end
 end

@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20160321121325) do
   create_table "sales", force: :cascade do |t|
     t.integer  "article_id"
     t.integer  "user_id"
-    t.date     "date_debut"
-    t.date     "date_fin"
-    t.decimal  "prix"
-    t.string   "adresse"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.decimal  "price"
+    t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

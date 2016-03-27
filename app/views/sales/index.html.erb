@@ -4,5 +4,8 @@
   </div>
 </div>
 <div class=row>
-  <%= render @articles %>
+  <%if @sales.size == 0 %>
+      <em>No sales found</em>
+  <% end %>
+  <%= render @sales %>
 </div>

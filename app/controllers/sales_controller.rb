@@ -7,7 +7,7 @@ class SalesController < ApplicationController
     @sale = Sale.find(params[:id])
     @sale.update(price: @sale.price + 1)
 
-    redirect_to sales_url
+    redirect_to :back
   end
 
   def show

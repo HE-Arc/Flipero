@@ -7,7 +7,7 @@ class SalesController < ApplicationController
 
   def buy
     @sale = Sale.find(params[:id])
-    @user = User.find(params[:user_id])
+    @user = current_user
     @sale.update(price: @sale.price + 1, user: @user)
 
     redirect_to :back

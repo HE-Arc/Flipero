@@ -11,9 +11,9 @@
   
   User.create(email: "user#{n+1}@flipero.ch", password: "12345678")
   
-  Sale.create(article_id: "#{n+1}", user_id: "#{n+1}", price: "11#{n}", date_start: DateTime.now, date_end: 3.minutes.from_now)
+  sale = Sale.create(article_id: "#{n+1}", user_id: "#{n+1}", price: "11#{n}", date_start: DateTime.now, date_end: 3.minutes.from_now)
 
-  SaleEndJob.set(wait: 1.minutes).perform_later(Sale.find(n+1))
+  SaleEndJob.set(wait: 3.minutes).perform_later(sale)
 end
 
 #a = articles.find(1)

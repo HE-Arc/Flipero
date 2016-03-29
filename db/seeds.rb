@@ -11,7 +11,7 @@
   
   User.create(email: "user#{n+1}@flipero.ch", password: "12345678")
   
-  Sale.create(article_id: "#{n+1}", user_id: "#{n+1}", price: "11#{n}")
+  Sale.create(article_id: "#{n+1}", user_id: "#{n+1}", price: "11#{n}", date_start: Time.now.to_datetime, date_end: 3.minutes.from_now)
 
   SaleEndJob.set(wait: 1.minutes).perform_later(Sale.find(n+1))
 end

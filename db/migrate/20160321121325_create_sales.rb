@@ -3,8 +3,8 @@ class CreateSales < ActiveRecord::Migration
     create_table :sales do |t|
       t.belongs_to :article, index: true
       t.belongs_to :user, index: true
-      t.date :date_start
-      t.date :date_end
+      t.datetime :date_start
+      t.datetime :date_end
       t.decimal :price
       t.string :address
       

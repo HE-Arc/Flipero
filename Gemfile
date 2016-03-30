@@ -39,11 +39,10 @@ gem 'devise'
 
 #Jobs backend
 gem 'delayed_job'
+gem 'delayed_job_active_record'
 
 #Daemons
 gem 'daemons'
-
-gem 'delayed_job_active_record'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

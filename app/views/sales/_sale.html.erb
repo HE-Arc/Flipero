@@ -3,6 +3,32 @@
     <p>
       <img src="<%= sale.article.image.url(:thumb) %>" alt="preview of <%= sale.article.name %>">
     </p>
+    <span id="countdown-<%= sale.id %>" class="button medium success"></span>
+
+    <script type="text/javascript">
+      
+      //We get the time in database in UTC and we convert it to the user timezone
+      var time = new Date("<%= sale.date_end.strftime("%Y/%m/%d %T") %>" + " UTC");
+      time = format(time,"yyyy/MM/dd hh:mm:ss");
+
+      $('#countdown-<%= sale.id %>').countdown(time)
+      .on('update.countdown', function(event) {
+         var format = '%H:%M:%S';
+         if(event.offset.days > 0) {
+             format = '%-d jour%!d ' + format;
+           }
+         if(event.offset.weeks > 0) {
+             format = '%-w semaine%!w ' + format;
+           }
+         $(this).html(event.strftime(format));
+        })
+      .on('finish.countdown', function(event) {
+           $(this).html('La vente est terminée')
+            .parent().addClass('disabled');
+
+        });
+
+    </script>
     <p class="text-left detail">
       <div>
         <%= button_to "Show", { action: "show", id:sale.id}, class: "button large" %>

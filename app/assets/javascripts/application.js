@@ -13,11 +13,10 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require jquery-ui
+//= require jquery.countdown
+//= require modernizr
 //= require foundation
 //= require_tree .
 
 $(function(){ $(document).foundation();});
-
-//= require modernizr
 //= require turbolinks

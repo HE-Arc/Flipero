@@ -1,5 +1,6 @@
 class SalesController < ApplicationController
   before_action :authenticate_user!, only: [:buy]
+  respond_to :html, :js
 
   def index
     @sales = Sale.all

@@ -6,8 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+articles = ['Star Wars R2-D2 Carry-On Luggage', 'Pi Power Necktie', 'meh. Mug', 'BB-8™ App-Enabled Droid™ by Sphero', ]
+#"article #{n+1}"
 4.times do |n|
-  Article.create(name: "article #{n+1}", description: "This is the description for the beautiful article #{n+1}", price: "1#{n}", image: File.new(File.expand_path("../../public/seedImg/#{n}.jpg", __FILE__)))
+  Article.create(name: articles[n], description: "This is the description for the beautiful article #{n+1}", price: "1#{n}", image: File.new(File.expand_path("../../public/seedImg/#{n}.jpg", __FILE__)))
   
   User.create(email: "user#{n+1}@flipero.ch", password: "12345678")
   

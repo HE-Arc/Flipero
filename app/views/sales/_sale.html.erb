@@ -4,11 +4,25 @@
       <img src="<%= sale.article.image.url(:thumb) %>" alt="preview of <%= sale.article.name %>">
     </p>
     <p class="text-left detail">
-        <a class="button large" href="<%= url_for(action: :show, id: sale.id) %>">
-            Show
-        </a>
-        <a class="button large" href="<%= url_for(action: :buy, id: sale.id) %>">
-            <%= sale.price %> pts
-        </a>
+      <div>
+        <%= button_to "Show", { action: "show", id:sale.id}, class: "button large" %>
+        <% if user_signed_in? %>
+            <% if sale.user_id == current_user.id %>
+                <%= button_to "WIN!",
+                              { action: "buy", id:sale.id},
+                              class: "button large"%>
+            <% else %>
+                <%= button_to sale.price.to_s + " pts",
+                              { action: "buy", id:sale.id},
+                              class: "button large" %>
+            <% end %>
+        <% else %>
+            <%= button_to sale.price.to_s + " pts",
+                          { action: "buy", id:sale.id},
+                          class: "button large",
+                          data: { confirm: 'To bet, you must frst login, Proceed?'} %>
+        <% end %>
+      </div>
     </p>
+
 </div>

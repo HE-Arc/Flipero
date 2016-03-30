@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20160323100303) do
   create_table "sales", force: :cascade do |t|
     t.integer  "article_id"
     t.integer  "user_id"
-    t.date     "date_start"
-    t.date     "date_end"
+    t.datetime "date_start"
+    t.datetime "date_end"
     t.decimal  "price"
     t.string   "address"
     t.datetime "created_at", null: false

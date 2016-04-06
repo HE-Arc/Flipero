@@ -10,10 +10,10 @@
   Article.create(name: "article #{n+1}", description: "This is the description for the beautiful article #{n+1}", price: "1#{n}", image: File.new(File.expand_path("../../public/seedImg/#{n}.jpg", __FILE__)))
   
   User.create(email: "user#{n+1}@flipero.ch", password: "12345678")
-  
-  sale = Sale.create(article_id: "#{n+1}", user_id: "#{n+1}", price: "11#{n}", date_start: DateTime.now, date_end: 3.minutes.from_now)
 
-  SaleEndJob.set(wait: 3.minutes).perform_later(sale)
+  sale = Sale.create(article_id: "#{n+1}", user_id: "#{n+1}", price: "11#{n}", date_start: DateTime.now, date_end: 1.week.from_now)
+
+  SaleEndJob.set(wait: 1.week).perform_later(sale)
 end
 
 #a = articles.find(1)

@@ -6,6 +6,14 @@ class SalesController < ApplicationController
     @sales = Sale.all
   end
 
+  def notendedsales
+    @sales = Sale.where("date_end > ?", DateTime.now)
+  end
+
+  def endedsales
+    @sales = Sale.where("date_end <= ?", DateTime.now)
+  end
+
   def buy
     @sale = Sale.find(params[:id])
     @user = current_user

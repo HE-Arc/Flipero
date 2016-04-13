@@ -2,6 +2,8 @@ class SaleEndJob < ActiveJob::Base
   queue_as :default
 
   def perform(sale)
-      sale.address = sale.user.address
+      @sale = sale
+      @user = sale.user
+      @sale.update(address: @user.address)
   end
 end

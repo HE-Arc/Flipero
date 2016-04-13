@@ -11,6 +11,6 @@ Rails.application.configure do
     address: 'mailcatcher',
     port: 1025
   }
-  config.action_mailer.default_url_options = {host: 'admin.srvz-webapp.he-arc.ch'}
+  config.action_mailer.default_url_options = {host: 'flipero.srvz-webapp.he-arc.ch'}
 
 end

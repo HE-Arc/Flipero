@@ -3,15 +3,15 @@ class SalesController < ApplicationController
   respond_to :html, :js
 
   def index
-    @sales = Sale.all
+    @sales = Sale.order('id').all
   end
 
   def notendedsales
-    @sales = Sale.where("date_end > ?", DateTime.now)
+    @sales = Sale.order('id').where("date_end > ?", DateTime.now)
   end
 
   def endedsales
-    @sales = Sale.where("date_end <= ?", DateTime.now)
+    @sales = Sale.order('id').where("date_end <= ?", DateTime.now)
   end
 
   def buy

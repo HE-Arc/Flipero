@@ -14,6 +14,11 @@ class SalesController < ApplicationController
     @sales = Sale.order('id').where("date_end <= ?", DateTime.now)
   end
 
+  def getsalestatus
+
+    render :json => some_data
+  end
+
   def buy
     @sale = Sale.find(params[:id])
     @user = current_user

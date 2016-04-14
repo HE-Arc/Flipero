@@ -61,6 +61,9 @@ server 'srvz-webapp.he-arc.ch', user: 'lucas', roles: %w{app db web}
 #     # password: 'please use keys'
 #   }
 
+
+set :tmp_dir, "/tmp/#{ENV['USER']}"
+
 set :ssh_options, {
     port: 2004
 }

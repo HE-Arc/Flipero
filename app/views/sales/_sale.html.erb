@@ -36,17 +36,23 @@
             <% if sale.user_id == current_user.id %>
                 <%= button_to "WIN!",
                               { action: "buy", id:sale.id},
-                              class: "button large"%>
+                              form_class: "button-bet",
+                              class: "button large sale-"+sale.id.to_s,
+                              remote: true%>
             <% else %>
                 <%= button_to sale.price.to_s + " pts",
                               { action: "buy", id:sale.id},
-                              class: "button large" %>
+                              form_class: "button-bet",
+                              class: "button large sale-"+sale.id.to_s,
+                              remote: true%>
             <% end %>
         <% else %>
             <%= button_to sale.price.to_s + " pts",
                           { action: "buy", id:sale.id},
-                          class: "button large",
-                          data: { confirm: 'To bet, you must frst login, Proceed?'} %>
+                          form_class: "button-bet",
+                          class: "button large sale-"+sale.id.to_s,
+                          data: { confirm: 'To bet, you must frst login, Proceed?'},
+                          remote: true%>
         <% end %>
       </div>
     </p>

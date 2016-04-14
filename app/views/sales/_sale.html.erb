@@ -1,8 +1,10 @@
-<div class="large-3 medium-4 small-12 columns article<%= " end" if sale_counter + 1 == @sales.count %>">
+<div class="row">
+    <div class="large-4 medium-4 small-12 columns article<%= " end" if sale_counter + 1 == @sales.count %>">
     <h2><%= sale.article.name %></h2>
-    <p>
+    </div>
+    <div class="large-4 small-12 columns article<%= " end" if sale_counter + 1 == @sales.count %>">
       <img src="<%= sale.article.image.url(:thumb) %>" alt="preview of <%= sale.article.name %>">
-    </p>
+    </div>
     <span id="countdown-<%= sale.id %>" class="button medium success"></span>
 
     <script type="text/javascript">
@@ -29,7 +31,7 @@
         });
 
     </script>
-    <p class="text-left detail">
+
       <div>
         <%= button_to "Show", { action: "show", id:sale.id}, class: "button large" %>
         <% if user_signed_in? %>
@@ -55,6 +57,5 @@
                           remote: true%>
         <% end %>
       </div>
-    </p>
-
+    <hr style="width:100%; color:black; background-color:black; height:2px;" /> 
 </div>

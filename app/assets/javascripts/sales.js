@@ -7,6 +7,8 @@ $(function() {
         });
     });
 
+
+
     function updateSaleStatus(id)
     {
         $.get('/getsalestatus').success(function(data) {
@@ -14,13 +16,22 @@ $(function() {
                 console.log(value);
                 if(parseInt(value.user_id) == parseInt(id))
                 {
-                    $('.sale-'+value.id).val('WIN');
+                    $('.sale-'+value.id).val("It's yours... for now!");
                 }
                 else
                 {
                     $('.sale-'+value.id).val(value.price + " pts");
                 }
             });
+        });
+    }
+
+    updateButtons();
+
+    function updateButtons() {
+        $.get('/getcurrentuser').success(function(data) {
+            setTimeout(updateButtons,5000);
+            updateSaleStatus(data.id);
         });
     }
 });

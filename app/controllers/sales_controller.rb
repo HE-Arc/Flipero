@@ -15,8 +15,8 @@ class SalesController < ApplicationController
   end
 
   def getsalestatus
-
-    render :json => some_data
+    sales = notendedsales
+    render :json => sales
   end
 
   def buy

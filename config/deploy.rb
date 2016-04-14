@@ -47,8 +47,8 @@ namespace :deploy do
 
   after :finished, :restart_puma do
     on roles(:web) do
-      execute :sudo, 'sv restart puma'
-      execute :sudo, "rm -r /tmp/#{fetch(:application)}"
+      sudo "sv restart puma"
+      # sudo "rm -r /tmp/#{fetch(:application)}"
     end
   end
 

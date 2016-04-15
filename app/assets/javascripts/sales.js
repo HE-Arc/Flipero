@@ -13,7 +13,6 @@ $(function() {
     {
         $.get('/getsalestatus').success(function(data) {
             $.each(data, function(index, value ) {
-                console.log(value);
                 if(parseInt(value.user_id) == parseInt(id))
                 {
                     $('.sale-'+value.id).val("It's yours... for now!");

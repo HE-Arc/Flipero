@@ -16,8 +16,13 @@
       <%= render "layouts/navigation" %>
     </nav>
     <main role="main">
+      <%= render 'layouts/messages' %>
       <%= yield %>
     </main>
+
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>
 

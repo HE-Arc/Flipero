@@ -5,12 +5,58 @@
       <img src="<%= @sale.article.image.url(:medium) %>" alt="preview of <%= @sale.article.name %>">
     </p>
   </div>
-  <div class="columns small-6">
-    <p>
+  <div class="columns small-6"> 
+  
+  <span id="countdown-<%= @sale.id %>" class="button medium success"></span>
+
+    <script type="text/javascript">
+
+      //We get the time in database in UTC and we convert it to the user timezone
+      var time = new Date("<%= @sale.date_end.strftime("%Y/%m/%d %T") %>" + " UTC");
+      time = format(time,"yyyy/MM/dd hh:mm:ss");
+
+      $('#countdown-<%= @sale.id %>').countdown(time)
+      .on('update.countdown', function(event) {
+         var format = '%H:%M:%S';
+         if(event.offset.days > 0) {
+             format = '%-d day%!d ' + format;
+           }
+         if(event.offset.weeks > 0) {
+             format = '%-w week%!w ' + format;
+           }
+         $(this).html(event.strftime(format));
+        })
+      .on('finish.countdown', function(event) {
+           $(this).html('the sale is over.')
+            .parent().addClass('disabled');
+
+        });
+
+    </script>
+        <% if user_signed_in? %>
+            <% if @sale.user_id == current_user.id %>
+                <%= button_to "It's yours... for now!",
+                              { action: "show", id:@sale.id},
+                              form_class: "button-bet",
+                              class: "button large sale-"+@sale.id.to_s,
+                              remote: true%>
+            <% else %>
+                <%= button_to @sale.price.to_s + " pts",
+                              { action: "buy", id:@sale.id},
+                              form_class: "button-bet",
+                              class: "button large sale-"+@sale.id.to_s,
+                              remote: true%>
+            <% end %>
+        <% else %>
+            <%= button_to @sale.price.to_s + " pts",
+                          { action: "buy", id:@sale.id},
+                          form_class: "button-bet",
+                          class: "button large sale-"+@sale.id.to_s,
+                          data: { confirm: 'To bet, you must frst login, Proceed?'},
+                          remote: true%>
+        <% end %>
+        <p>
       <%= @sale.article.description %>
     </p>
-    <p>
-      Price : <%= @sale.price %> pts
-    </p>
-  </div>
+      </div>
 </div>

@@ -1,13 +1,9 @@
 $(function() {
-    $(".button-bet").submit(function(event) {
-        //event.preventDefault();
-        //$('form.button-bet').trigger('submit.rails');
+    $(".button-bet").submit(function() {
         $.get('/getcurrentuser').success(function(data) {
-            updateSaleStatus(data.id);
+          updateSaleStatus(data.id);
         });
     });
-
-
 
     function updateSaleStatus(id)
     {
@@ -16,10 +12,12 @@ $(function() {
                 if(parseInt(value.user_id) == parseInt(id))
                 {
                     $('.sale-'+value.id).val("It's yours... for now!");
+                    $('.sale-'+value.id).prop( "disabled", true );
                 }
                 else
                 {
                     $('.sale-'+value.id).val(value.price + " pts");
+                    $('.sale-'+value.id).prop( "disabled", false );
                 }
             });
         });
@@ -33,6 +31,17 @@ $(function() {
             updateSaleStatus(data.id);
         });
     }
+
+  $(".button-bet").on("ajax:success", function(e, data, status, xhr){
+    appendFlashAjax("Your bet as been placed !", "success");
+  }).on("ajax:error", function(e, xhr, status, error){
+    appendFlashAjax("An error occured :(", "error");
+  });
+
+  function appendFlashAjax(msg, type)
+  {
+    $("#flash_hook").append("<div class='row'> <div data-closable class='callout " + type + "'>" + msg + "<button class='close-button' aria-label='Close alert' type='button' data-close> <span aria-hidden='true'>×</span></button> </div> </div>");
+  }
 });
 
 

@@ -22,7 +22,10 @@ class SalesController < ApplicationController
   def buy
     @sale = Sale.find(params[:id])
     @user = current_user
-    @sale.update(price: @sale.price + 1, user: @user)
+    if @user.id == @sale.id
+    else
+      @sale.update(price: @sale.price + 1, user: @user)
+    end
 
     redirect_to :back
   end

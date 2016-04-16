@@ -1,31 +1,33 @@
-<%# Rails flash messages styled for Zurb Foundation %>
-<% if flash[:notice] -%>
-    <div class="row">
-      <div data-closable class="callout primary">
-        <%= flash[:notice] %>
-        <button class="close-button" aria-label="Close notice" type="button" data-close>
-          <span aria-hidden="true">×</span>
-        </button>
+<div id="flash_hook">
+  <%# Rails flash messages styled for Zurb Foundation %>
+  <% if flash[:notice] -%>
+      <div class="row">
+        <div data-closable class="callout primary">
+          <%= flash[:notice] %>
+          <button class="close-button" aria-label="Close notice" type="button" data-close>
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
       </div>
-    </div>
-<% end -%>
-<% if flash[:alert] -%>
-    <div class="row">
-      <div data-closable class="callout alert">
-        <%= flash[:alert] %>
-        <button class="close-button" aria-label="Close alert" type="button" data-close>
-          <span aria-hidden="true">×</span>
-        </button>
+  <% end -%>
+  <% if flash[:alert] -%>
+      <div class="row">
+        <div data-closable class="callout alert">
+          <%= flash[:alert] %>
+          <button class="close-button" aria-label="Close alert" type="button" data-close>
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
       </div>
-    </div>
-<% end -%>
-<% if flash[:success] -%>
-    <div class="row">
-      <div data-closable class="callout success">
-        <%= flash[:success] %>
-        <button class="close-button" aria-label="Close alert" type="button" data-close>
-          <span aria-hidden="true">×</span>
-        </button>
+  <% end -%>
+  <% if flash[:success] -%>
+      <div class="row">
+        <div data-closable class="callout success">
+          <%= flash[:success] %>
+          <button class="close-button" aria-label="Close alert" type="button" data-close>
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
       </div>
-    </div>
-<% end -%>
+  <% end -%>
+</div>

@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'notendedsales' => 'sales#notendedsales'
   get 'getsalestatus' => 'sales#getsalestatus'
   get 'getcurrentuser' => 'users#getcurrentuser'
+  get 'buy/credits' => 'application#buycredits'
+  get 'buy/credits/:nb' => 'application#processbuy'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

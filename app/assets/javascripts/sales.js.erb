@@ -1,7 +1,7 @@
 $(function() {
     $(".button-bet").submit(function() {
-        $.get('/getcurrentuser').success(function(data) {
-          updateSaleStatus(data.id);
+        $.get('/getcurrentuser').success(function(user) {
+          updateSaleStatus(user.id);
         });
     });
 
@@ -26,16 +26,17 @@ $(function() {
     updateButtons();
 
     function updateButtons() {
-        $.get('/getcurrentuser').success(function(data) {
+        $.get('/getcurrentuser').success(function(user) {
             setTimeout(updateButtons,5000);
-            updateSaleStatus(data.id);
+            updateSaleStatus(user.id);
+            $('#nb-credits').text('Credits : ' + user.credits);
         });
     }
 
   $(".button-bet").on("ajax:success", function(e, data, status, xhr){
     appendFlashAjax("Your bet as been placed !", "success");
   }).on("ajax:error", function(e, xhr, status, error){
-    appendFlashAjax("An error occured :(", "error");
+    appendFlashAjax("Not enough credits :(", "error");
   });
 
   function appendFlashAjax(msg, type)
@@ -43,5 +44,3 @@ $(function() {
     $("#flash_hook").append("<div class='row'> <div data-closable class='callout " + type + "'>" + msg + "<button class='close-button' aria-label='Close alert' type='button' data-close> <span aria-hidden='true'>×</span></button> </div> </div>");
   }
 });
-
-

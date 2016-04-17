@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
         @user.credits = 0
       end
       @user.update(credits: @user.credits + Integer(params[:nb]))
-      flash[:success] = "You have bought " + params[:nb] + "credits"
+      flash[:success] = "You have bought " + params[:nb] + " credits."
       redirect_to :root
     end
 end

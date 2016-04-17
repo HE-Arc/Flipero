@@ -25,6 +25,7 @@ class SalesController < ApplicationController
     if @user.id != @sale.user.id and @user.credits >= @sale.price
       @user.update(credits: @user.credits - @sale.price)
       @sale.update(price: @sale.price + 1, user: @user)
+      SaleBotJob.set(wait: 5.seconds).perform_later(sale)
     end
 
     redirect_to :back

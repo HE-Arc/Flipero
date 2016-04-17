@@ -22,7 +22,7 @@ class SalesController < ApplicationController
   def buy
     @sale = Sale.find(params[:id])
     @user = current_user
-    if @user.id != @sale.id and @user.credits >= @sale.price
+    if @user.id != @sale.user.id and @user.credits >= @sale.price
       @user.update(credits: @user.credits - @sale.price)
       @sale.update(price: @sale.price + 1, user: @user)
     end

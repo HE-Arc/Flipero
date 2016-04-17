@@ -17,12 +17,5 @@ articles = ['Star Wars R2-D2 Carry-On Luggage', 'Pi Power Necktie', 'meh. Mug', 
 
   sale = Sale.create(article_id: "#{n+1}", user_id: "#{n+1}", price: "11#{n}", date_start: DateTime.now, date_end: 1.week.from_now)
   SaleEndJob.set(wait: 1.week).perform_later(sale)
-  #sale = Sale.create(article_id: "#{n+1}", user_id: "#{n+1}", price: "11#{n}", date_start: DateTime.now, date_end: 1.minute.from_now)
-  #SaleEndJob.set(wait: 1.minute).perform_later(sale)
 end
-
-#a = articles.find(1)
-#a.image_file_name =
-#articles.find(2).image_file_name = File.open(File.expand_path("../../public/seedingImages/1f64_pi_power_necktie.jpg", __FILE__))
-#a.save!
 

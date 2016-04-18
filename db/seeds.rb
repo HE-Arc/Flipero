@@ -16,6 +16,8 @@ articles = ['Star Wars R2-D2 Carry-On Luggage', 'Pi Power Necktie', 'meh. Mug', 
 
 
   sale = Sale.create(article_id: "#{n+1}", user_id: "#{n+1}", price: "11#{n}", date_start: DateTime.now, date_end: 1.week.from_now)
+  # FIXME: ceci n'a rien à faire ici. Si je crée une vente via l'interface
+  #        d'admin et bien, elle n'aura pas de SaleEndJob. fail!
   SaleEndJob.set(wait: 1.week).perform_later(sale)
 end
 

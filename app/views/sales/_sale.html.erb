@@ -7,6 +7,7 @@
     </div>
     <span id="countdown-<%= sale.id %>" class="button medium success"></span>
 
+<%# FIXME: le JavaScript dans l'HTML c'est surtout quand il est dupliqué n fois! %>
     <script type="text/javascript">
 
       //We get the time in database in UTC and we convert it to the user timezone
@@ -57,5 +58,6 @@
                           remote: true%>
         <% end %>
       </div>
+    <%# FIXME: WTFBBQ!? %>
     <hr style="width:100%; color:black; background-color:black; height:2px;" /> 
 </div>
